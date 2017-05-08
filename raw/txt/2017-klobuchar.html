@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Pollen Agency: Computer</title>
+
+    <style>
+  
+  .node {
+    cursor: pointer;
+  }
+
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 3px;
+  }
+
+  .node text {
+    font: 12px sans-serif;
+  }
+
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
+  }
+  
+    </style>
+
+  </head>
+
+  <body>
+
+<!-- load the d3.js library --> 
+<script src="http://d3js.org/d3.v3.min.js"></script>
+  
+<script>
+
+var treeData = [
+{  
+   "name":"Democrat Party Set",
+   "parent":null,
+   "children":[  
+      {  
+         "name":"Klobuchar",
+         "parent":"Democrat Party Set",
+         "children":[  
+            {  
+            "time":" 8:33 ",
+"name":"Klobuchar and Student Loan Rates",
+"views":"415 views",
+"date":"4 years ago"
+   },
+            {  
+"time":"  7:47 ",
+"name":"Klobuchar Calls on Senate Colleagues to Fill Judicial Vacancies",
+"views":"352 views",
+"date":"5 years ago"
+   },
+            {  
+"time":"   6:33 ",
+"name":"Klobuchar Testifies in Support of Bipartisan Drug Shortages Legislation",
+"views":"301 views",
+"date":"5 years ago"
+   },
+            {  
+"time":"  5:20 ",
+"name":"Klobuchar Questions Bernanke",
+"views":"432 views",
+"date":"5 years ago"
+   },
+            {  
+"time":"   1:16 ",
+"name":"Klobuchar Calls for Compromise on Budget",
+"views":"284 views",
+"date":"5 years ago"
+  },
+            {  
+"time":"  2:55 ",
+"name":"Klobuchar Talks About the Need for an Innovation Agenda",
+"views":"784 views",
+"date":"6 years ago"
+  },
+            {  
+"time":"   1:20:55 ",
+"name":"Senator Klobuchar's Innovation Summit",
+"views":"198 views",
+"date":"6 years ago"
+   },
+            {  
+"time":"  1:50:33 ",
+"name":"Senator Klobuchar's Innovation Summit",
+"views":"207 views",
+"date":"6 years ago"
+   },
+            {  
+"time":"   2:11 ",
+"name":"Senator Klobuchar answers your question on food safety",
+"views":"298 views",
+"date":"6 years ago"
+   },
+            {  
+"time":"  2:16 ",
+"name":"Senator Klobuchar speaks in support of repealing 'Don't ask, don't tell'",
+"views":"152 views",
+"date":"6 years ago"
+  },
+            {  
+"time":"   1:59:42 ",
+"name":"Klobuchar hosts broadband summit with FCC Chairman Genachowski",
+"views":"313 views",
+"date":"6 years ago"
+   },
+            {  
+"time":"  2:30 ",
+"name":"Klobuchar responds to your question about the impact of the Gulf Oil Spill on Minnesota waterfowl",
+"views":"184 views",
+"date":"6 years ago"
+   },
+            {  
+"time":"   2:43 ",
+"name":"Klobuchar on the importance of Wall Street Reform Bill",
+"views":"299 views",
+"date":"6 years ago"
+   },
+            {  
+"time":"  2:53 ",
+"name":"Senator Klobuchar discusses health and school lunches",
+"views":"246 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"   3:33 ",
+"name":"Senator Klobuchar discusses small businesses and job creation",
+"views":"162 views",
+"date":"7 years ago"
+  },
+            {  
+"time":"  1:54 ",
+"name":"Senator Klobuchar responds to your question on Haitian adoptions",
+"views":"109 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"   3:07 ",
+"name":"Senator Klobuchar Discusses Exporting for Small Businesses",
+"views":"163 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"  2:43 ",
+"name":"Senator Klobuchar answers your question on the extension of unemployment benefits",
+"views":"282 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"   2:25 ",
+"name":"Senator Klobuchar Fights for Minnesota Unemployment Benefits",
+"views":"399 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"  8:05 ",
+"name":"Senator Klobuchar on Morning Meeting",
+"views":"81 views",
+"date":"7 years ago"
+  },
+            {  
+"time":"   6:19 ",
+"name":"Senator Klobuchar on The Rachel Maddow Show",
+"views":"309 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"  4:49 ",
+"name":"Senator Klobuchar Discusses Promoting Exporting for Small Businesses",
+"views":"70 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"   4:06 ",
+"name":"Amy Klobuchar Speech on Women's Health",
+"views":"439 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"  3:40 ",
+"name":"Senator Klobuchar discusses childhood obesity on MSNBCs Morning Joe",
+"views":"84 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"   2:20 ",
+"name":"Senator Klobuchar answers your question on the Airline Passenger Bill of Rights",
+"views":"199 view",
+"date":"7 years ago"
+  },
+            {  
+"time":"  17:01 ",
+"name":"Senator Klobuchar speaks on the Senate floor about Healthcare",
+"views":"77 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"   2:22 ",
+"name":"Senator Klobuchar answers your questions on Medicare Part D",
+"views":"122 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"  2:34 ",
+"name":"Senator Klobuchar answers your questions about the Travel Promotion Act and her Dig Once legislation",
+"views":"131 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"   1:36 ",
+"name":"Senator Klobuchar answers your questions about health care",
+"views":"377 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"  2:28 ",
+"name":"Senator Klobuchar answers your questions about elder care",
+"views":"142 views",
+"date":"7 years ago"
+  },
+            {  
+"time":"   2:05 ",
+"name":"Senator Klobuchar answers your questions about the first-time homebuyers tax credit",
+"views":"170 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"  2:27 ",
+"name":"Senator Klobuchar answers your questions about health care and education",
+"views":"357 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"   10:43 ",
+"name":"Klobuchar: Fast Response Critical to Curbing Food Illness Outbreaks",
+"views":"89 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"  10:51 ",
+"name":"Klobuchar Calls for an End to Abusive Credit Card Practices that are Hurting Families",
+"views":"102 views",
+"date":"7 years ago"
+   },
+            {  
+"time":"   5:23 ",
+"name":"Klobuchar Questions EPA Administratior Lisa Jackson",
+"views":"79 views",
+"date":"7 years ago"
+  },
+            {  
+"time":"  11:37 ",
+"name":"Klobuchar Says Greater Commitment Needed to Crackdown on Mortgage and Financial Fraud",
+"views":"46 views",
+"date":"8 years ago"
+   },
+            {  
+"time":"   12:41 ",
+"name":"Klobuchar Says I35W Bridge Collapse Is 'Wake-Up Call' to Fix Highway Bridge Program",
+"views":"67 views",
+"date":"8 years ago"
+   },
+            {  
+"time":"  10:21 ",
+"name":"Klobuchar speaks in support of Eric Holder for Attorney General",
+"views":"41 views",
+"date":"8 years ago"
+   },
+            {  
+"time":"   9:19 ",
+"name":"Klobuchar Pushes For Equal Pay",
+"views":"32 views",
+"date":"8 years ago"
+   },
+            {  
+"time":"  13:30 ",
+"name":"Klobuchar Calls for Broadband Investments as Part of Economic Recovery Plan",
+"views":"14 views",
+"date":"8 years ago"
+  },
+            {  
+"time":"   10:37 ",
+"name":"Klobuchar: Health Care Overhaul Should Start with Medicare Reform",
+"views":"98 views",
+"date":"8 years ago"
+  },
+            
+         ]
+      }
+
+
+
+   ]
+}
+
+];
+
+
+// ************** Generate the tree diagram  *****************
+var margin = {top: 20, right: 120, bottom: 20, left: 120},
+  width = 960 - margin.right - margin.left,
+  height = 500 - margin.top - margin.bottom;
+  
+var i = 0,
+  duration = 750,
+  root;
+
+var tree = d3.layout.tree()
+  .size([height, width]);
+
+var diagonal = d3.svg.diagonal()
+  .projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("body").append("svg")
+  .attr("width", width + margin.right + margin.left)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+root = treeData[0];
+root.x0 = height / 2;
+root.y0 = 0;
+  
+update(root);
+
+d3.select(self.frameElement).style("height", "500px");
+
+function update(source) {
+
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse(),
+    links = tree.links(nodes);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+  // Update the nodes…
+  var node = svg.selectAll("g.node")
+    .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append("g")
+    .attr("class", "node")
+    .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+    .on("click", click);
+
+  nodeEnter.append("circle")
+    .attr("r", 1e-6)
+    .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeEnter.append("text")
+    .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
+    .attr("dy", ".35em")
+    .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+    .text(function(d) { return d.name; })
+    .style("fill-opacity", 1e-6);
+
+  // Transition nodes to their new position.
+  var nodeUpdate = node.transition()
+    .duration(duration)
+    .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+  nodeUpdate.select("circle")
+    .attr("r", 10)
+    .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeUpdate.select("text")
+    .style("fill-opacity", 1);
+
+  // Transition exiting nodes to the parent's new position.
+  var nodeExit = node.exit().transition()
+    .duration(duration)
+    .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+    .remove();
+
+  nodeExit.select("circle")
+    .attr("r", 1e-6);
+
+  nodeExit.select("text")
+    .style("fill-opacity", 1e-6);
+
+  // Update the links…
+  var link = svg.selectAll("path.link")
+    .data(links, function(d) { return d.target.id; });
+
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("path", "g")
+    .attr("class", "link")
+    .attr("d", function(d) {
+    var o = {x: source.x0, y: source.y0};
+    return diagonal({source: o, target: o});
+    });
+
+  // Transition links to their new position.
+  link.transition()
+    .duration(duration)
+    .attr("d", diagonal);
+
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+    .duration(duration)
+    .attr("d", function(d) {
+    var o = {x: source.x, y: source.y};
+    return diagonal({source: o, target: o});
+    })
+    .remove();
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+  d.x0 = d.x;
+  d.y0 = d.y;
+  });
+}
+
+// Toggle children on click.
+function click(d) {
+  if (d.children) {
+  d._children = d.children;
+  d.children = null;
+  } else {
+  d.children = d._children;
+  d._children = null;
+  }
+  update(d);
+}
+
+</script>
+  
+  </body>
+</html>
